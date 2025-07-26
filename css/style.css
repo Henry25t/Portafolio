@@ -1,0 +1,326 @@
+/* ===== Base (Mobile‑First) ===== */
+html {
+  background-color: #0e0f10;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+.main,
+figure {
+  margin: 0;
+  padding: 0 1rem;
+}
+
+/* NAV CON HAMBURGUESA */
+nav {
+  display: flex;
+  flex-direction: column; /* columna en móvil */
+  align-items: center;
+  background-color: #0e0f10;
+  border-bottom: 0.1px solid #73767e;
+  padding: 1rem 0;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+/* Al abrir el menú, animamos el icono */
+.menu-toggle.open .hamburger {
+  background-color: transparent;
+}
+
+.menu-toggle.open .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* MENÚ oculto por defecto en móvil */
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.menu.open {
+  display: flex;
+  margin-top: 1rem;
+}
+
+/* LOGO */
+.icono-henry {
+  width: 120px;
+  height: auto;
+  background-color: #0e0f10;
+}
+
+/* LISTA en móvil (vertical) */
+.menu li {
+  list-style: none;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+
+.menu li:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: #0097b2;
+}
+
+/* TIPOGRAFÍA */
+h2,
+p {
+  color: white;
+}
+
+h2 {
+  font-size: 300%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cartas y contenedores */
+.here,
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background-color: #2b2c2f;
+  border: 0.5px solid #73767e;
+  border-radius: 10px;
+  display: block;
+}
+
+.div-name {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Colores utilitarios */
+.color-primary {
+  color: #0097b2;
+}
+.color-second {
+  color: #2b2c2f;
+}
+
+/* ===== Breakpoint 600px (Tablet) ===== */
+@media (min-width: 600px) {
+  nav {
+    padding: 1rem 0%;
+  }
+
+  .main {
+    margin: 0;
+    padding: 0 3rem;
+  }
+
+  .menu-toggle {
+    display: none; /* ocultar hamburguesa */
+  }
+
+  .icono-henry {
+    width: 150px;
+  }
+
+  .menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu li {
+    text-align: left;
+  }
+
+  .here,
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem auto;
+  }
+}
+
+/* ===== Breakpoint 1024px (Escritorio) ===== */
+@media (min-width: 1024px) {
+  nav {
+    padding: 1rem 11%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main {
+    margin: 0;
+    padding: 0 3rem;
+  }
+
+  .icono-henry {
+    width: 170px;
+  }
+
+  .menu li:hover::after {
+    left: 0;
+    width: 100%;
+    bottom: -6px;
+  }
+
+  .here,
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0rem auto;
+  }
+
+  .hero {
+    width: 70%;
+    max-width: 960px;
+    margin: 4rem auto;
+  }
+
+  .div-name {
+    gap: 1rem;
+  }
+
+  /* Estilos para botones sociales (desktop) */
+  .social-media-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 49px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    overflow: hidden;
+  }
+
+  .icon-media-social {
+    width: 40px;
+    height: auto;
+    z-index: 1;
+  }
+
+  .label {
+    position: absolute;
+    bottom: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+  }
+
+  .social-media-link:hover .label {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .social-btn {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    text-decoration: none;
+    transform-origin: center center;
+    transition: transform 0.2s ease;
+  }
+
+  .social-btn .span {
+    position: absolute;
+    bottom: -2.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+  }
+
+  .social-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .social-btn:hover .span {
+    opacity: 1;
+    visibility: visible;
+    background-color: transparent;
+  }
+
+  .social-btn:hover #background-linkedin {
+    fill: #005582 !important;
+  }
+
+  .separation {
+    display: flex;
+    gap: 1rem;
+  }
+}
