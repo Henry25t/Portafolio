@@ -189,8 +189,13 @@ nav.scrolled {
 .menu.open {
   display: flex;
 }
-
-.menu li {
+.menu li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+.menu li{
   list-style: none;
   color: var(--text-primary);
   cursor: pointer;
@@ -221,7 +226,7 @@ nav.scrolled {
 
 /* ===== MAIN CONTENT ===== */
 .main {
-  margin-top: 80px; 
+  margin-top: 0px; 
   padding: 0 1rem;
 }
 
@@ -230,6 +235,13 @@ nav.scrolled {
   text-align: center;
   padding: 4rem 0;
   position: relative;
+}
+
+.hero-section{
+  height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .div-name {
@@ -401,6 +413,71 @@ p {
   font-size: 1.05rem;
 }
 
+/* ===== SECCIÓN DE PROYECTOS ===== */
+.projects {
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  margin-bottom: 3rem;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-primary);
+  border-color: var(--primary-color);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.card-btn {
+  display: inline-block;
+  background: var(--accent-gradient);
+  color: var(--text-primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+
+.card-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+
 /* ===== BREAKPOINT 600px (Tablet) ===== */
 @media (min-width: 600px) {
   nav {
@@ -470,6 +547,11 @@ p {
     width: 65px;
     height: 65px;
   }
+
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 /* ===== BREAKPOINT 1024px (Desktop) ===== */
@@ -532,6 +614,13 @@ p {
     gap: 2.5rem;
   }
 
+  .image {
+    max-width: 100%;
+    height: auto;
+    display: block; /* quita el espacio blanco debajo */
+
+  }
+
   .social-btn .span {
     display: block;
     position: absolute;
@@ -559,6 +648,11 @@ p {
     transform: translateX(-50%) translateY(-5px);
   }
 
+  .project-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
   /* Efectos de partículas de fondo */
   body::before {
     content: '';
@@ -582,6 +676,7 @@ p {
     0% { transform: translate(0, 0); }
     100% { transform: translate(-150px, -100px); }
   }
+  
 }
 
 /* ===== ANIMACIONES ADICIONALES ===== */

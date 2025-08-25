@@ -1,0 +1,159 @@
+/* ===== SECCIÓN DE PROYECTOS (PÁGINA DEDICADA) - Mobile First ===== */
+
+/* Estilos por defecto (Móvil) */
+.proyectos-container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 60px auto 2rem auto;
+}
+
+.proyecto-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-primary);
+  border-color: var(--primary-color);
+}
+
+.proyecto-card h2 {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  margin-bottom: 1.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.proyecto-imagenes {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.proyecto-imagenes img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.carousel-indicators span {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-indicators span.active {
+  background-color: #717171;
+}
+
+.proyecto-info h3 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.proyecto-info a {
+  color: var(--text-primary);
+}
+
+.proyecto-info ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.proyecto-info ul li {
+  background-color: var(--secondary-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Adaptaciones para tablets y escritorio */
+@media (min-width: 768px) {
+  .proyectos-container {
+    padding: 4rem 2rem;
+    margin-top: 40px;
+  }
+
+  .proyecto-card {
+    padding: 2rem;
+  }
+
+  .proyecto-card h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .carousel-container {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
+  .carousel-button {
+    padding: 1rem;
+  }
+
+  .proyecto-info h3 {
+    font-size: 1.2rem;
+    margin-left: 0rem;
+  }
+}
