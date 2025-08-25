@@ -8,7 +8,5 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.toggle("open");
   });
 
-  cv.addEventListener("click", () => {
-    
-  })
+  cv.addEventListener("click", () => {});
 });
